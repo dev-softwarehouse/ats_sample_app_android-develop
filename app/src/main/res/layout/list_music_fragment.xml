@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="#0E0B1E">
+
+    <Button
+            android:id="@+id/buyPremiumButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#FE2851"
+            android:padding="8dp"
+            android:text="@string/buy_premium"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/buySubscribeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+            android:id="@+id/buySubscribeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#FE2851"
+            android:padding="8dp"
+            android:text="@string/buy_subscribe"
+            app:layout_constraintLeft_toRightOf="@+id/buyPremiumButton"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+            android:id="@+id/allMusicTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_margin="16dp"
+            android:text="All music"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyPremiumButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allMusicRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/likeMusicTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allMusicTitle"
+            tool:itemCount="64"
+            tool:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tool:listitem="@layout/item_music"
+            tool:spanCount="3" />
+
+    <TextView
+            android:id="@+id/likeMusicTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_margin="16dp"
+            android:text="Like music"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/likeMusicRecyclerView"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/likeMusicRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

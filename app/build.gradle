@@ -1,0 +1,98 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+apply from: '../dependencies.gradle'
+android {
+    compileSdk 31
+
+    defaultConfig {
+        //ads
+        applicationId "pl.netigen.drumloops.rock"
+        minSdk 23
+        targetSdk 30
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+
+        // Sample AdMob app ID:
+        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2307861394"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "shop"
+
+    productFlavors {
+        gms { dimension "shop" }
+        hms { dimension "shop" }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions { jvmTarget = '1.8' }
+
+    buildFeatures { viewBinding true }
+}
+
+
+dependencies {
+    //apiAndroid dependencies
+    implementation coreApiAndroid
+    gmsImplementation gmsApiAndroid
+    hmsImplementation hmsApiAndroid
+
+    //core dependencies
+    implementation coreDependencies.values()
+
+    //core dependencies
+    implementation coreDependencies.values()
+
+    //ui dependencies
+    implementation uiDependencies.values()
+
+    //navigation dependencies
+    implementation navigationDependencies.values()
+
+    //di dependencies
+    implementation hiltAndroid
+    kapt hiltAndroidCompiler
+
+    //coroutines dependencies
+    implementation coroutinesDependencies.values()
+
+    //lifecycle dependencies
+    implementation lifecycleDependencies.values()
+
+    //network dependencies
+    implementation networkDependencies.values()
+
+
+    //room dependencies
+    implementation roomDependence
+    implementation roomKtx
+    kapt kaptRoomDependence
+
+    //timber
+    implementation timber
+
+    //leakcanary
+    debugImplementation leakcanary
+
+    //test dependencies
+    testImplementation testImplementationDependencies.values()
+    testRuntimeOnly testRuntimeDependence
+
+
+}
